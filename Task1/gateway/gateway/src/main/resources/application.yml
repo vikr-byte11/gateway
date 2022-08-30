@@ -1,0 +1,48 @@
+spring.datasource.driver-class-name : "com.mysql.cj.jdbc.Driver"
+spring.datasource.url : "jdbc:mysql://localhost:3306/mydb?allowPublicKeyRetrieval=true&useSSL=false"
+spring.datasource.username : "root"
+spring.datasource.password : "abcd"
+
+spring.jpa.hibernate.ddl-auto : "update"
+spring.jpa.properties.hibernate.dialect : "org.hibernate.dialect.MySQL5Dialect"
+
+
+#doing sample tests
+#servers:
+#  - www.abc.test.com
+#  - www.xyz.test.com
+
+config:
+  services:
+    -
+      method: post
+      url: http://localhost:8082/save
+      status : active
+      body : "Region:N/A,Country:IND,Rights:Samsung"
+      serverId : 1
+      type : book
+      postParam: "bookName,bookAuthor"
+    -
+      method: get
+      url: http://localhost:8081/allbooks
+      status: active
+      body : "Region:N/A,Country:USA,Rights:Samsung"
+      serverId : 2
+      type: book
+      PostParam: "empty"
+    -
+      method: get
+      url: http://localhost:8085/getemployee
+      status : active
+      body : "Region:N/A,Country:USA,Rights:Samsung"
+      serverId : 3
+      type: emp
+      postParam: "empty"
+    -
+      method: post
+      url: http://localhost:8086/saveemployee
+      status: active
+      body: "Region:N/A,Country:USA,Rights:Samsung"
+      serverId: 3
+      type: emp
+      postParam: "name"
